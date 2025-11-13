@@ -15,11 +15,16 @@ public final class MyBubbleSort implements MySortAlgorithm {
     private MyBubbleSort() {
     }
 
+    /**
+     * Sort the given unsorted array using bubble sort.
+     * @param unsorted The unsorted array.
+     * @return A sorted copy of the unsorted array.
+     * @param <T> The type of values in the array.
+     */
     @Override
     public <T extends Comparable<T>> T[] sort(final T[] unsorted) {
         final T[] array = Arrays.copyOf(unsorted, unsorted.length);
         final int n = array.length;
-
         boolean swapped;
 
         for (int i = 0; i < n - 1; i++) {
