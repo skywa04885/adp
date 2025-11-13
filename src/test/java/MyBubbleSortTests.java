@@ -3,7 +3,7 @@ import com.github.skywa04885.MyMergeSort;
 import com.github.skywa04885.MySortAlgorithm;
 import org.junit.jupiter.api.DisplayName;
 
-@DisplayName("MyMergeSort Tests")
+@DisplayName("MyBubbleSort Tests")
 public class MyBubbleSortTests implements SortAlgorithmTests {
     @Override
     public MySortAlgorithm createSortAlgorithm() {
