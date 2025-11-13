@@ -3,16 +3,16 @@ package com.github.skywa04885;
 import java.util.Arrays;
 
 /**
- * My implementation of the merge sort algorithm.
+ * My implementation of the bubble sort algorithm.
  */
-public final class MyMergeSort implements MySortAlgorithm {
-    private static final MyMergeSort INSTANCE = new MyMergeSort();
+public final class MyBubbleSort implements MySortAlgorithm {
+    private static final MyBubbleSort INSTANCE = new MyBubbleSort();
 
-    public static MyMergeSort getInstance() {
+    public static MyBubbleSort getInstance() {
         return INSTANCE;
     }
 
-    private MyMergeSort() {
+    private MyBubbleSort() {
     }
 
     @Override
