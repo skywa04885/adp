@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * My implementation of the bubble sort algorithm.
  */
-public final class MyBubbleSort implements MySortAlgorithm {
+public final class MyBubbleSort implements MySorter {
     private static final MyBubbleSort INSTANCE = new MyBubbleSort();
 
     public static MyBubbleSort getInstance() {

@@ -1,11 +1,11 @@
 import com.github.skywa04885.MyMergeSort;
-import com.github.skywa04885.MySortAlgorithm;
+import com.github.skywa04885.MySorter;
 import org.junit.jupiter.api.DisplayName;
 
 @DisplayName("MyMergeSort Tests")
-public class MyMergeSortTests implements SortAlgorithmTests {
+public class MyMergeSortTests implements MySorterTests {
     @Override
-    public MySortAlgorithm createSortAlgorithm() {
+    public MySorter createSortAlgorithm() {
         return MyMergeSort.getInstance();
     }
 }

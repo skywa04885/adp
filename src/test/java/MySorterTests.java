@@ -1,16 +1,16 @@
-import com.github.skywa04885.MySortAlgorithm;
+import com.github.skywa04885.MySorter;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public interface SortAlgorithmTests {
-    MySortAlgorithm createSortAlgorithm();
+public interface MySorterTests {
+    MySorter createSortAlgorithm();
 
     @Test
     @DisplayName("Should sort empty array")
     default void shouldSortEmptyArray() {
-        final MySortAlgorithm sortAlgorithm = createSortAlgorithm();
+        final MySorter sortAlgorithm = createSortAlgorithm();
 
         final Integer[] unsorted = {};
 
@@ -22,7 +22,7 @@ public interface SortAlgorithmTests {
     @Test
     @DisplayName("Should sort integers")
     default void shouldSortIntegers() {
-        final MySortAlgorithm sortAlgorithm = createSortAlgorithm();
+        final MySorter sortAlgorithm = createSortAlgorithm();
 
         final Integer[] unsorted = {
                 27, -83, 14, 99, -42, 0, -7, 63, -100, 58,
@@ -42,7 +42,7 @@ public interface SortAlgorithmTests {
     @Test
     @DisplayName("Should sort floats")
     default void shouldSortFloats() {
-        final MySortAlgorithm sortAlgorithm = createSortAlgorithm();
+        final MySorter sortAlgorithm = createSortAlgorithm();
 
         final Float[] unsorted = {
                 -32.5f, 77.1f, -4.8f, 99.3f, -56.2f, 13.4f, -88.9f, 45.6f,

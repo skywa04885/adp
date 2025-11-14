@@ -1,4 +1,3 @@
-import com.github.skywa04885.MyLinkedList;
 import com.github.skywa04885.MyList;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -9,7 +8,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 /**
  * Interface containing all the tests for list implementations.
  */
-public interface ListTests {
+public interface MyListTests {
     MyList<Integer> createList();
 
     @Test

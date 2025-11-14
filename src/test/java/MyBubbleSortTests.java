@@ -1,12 +1,11 @@
 import com.github.skywa04885.MyBubbleSort;
-import com.github.skywa04885.MyMergeSort;
-import com.github.skywa04885.MySortAlgorithm;
+import com.github.skywa04885.MySorter;
 import org.junit.jupiter.api.DisplayName;
 
 @DisplayName("MyBubbleSort Tests")
-public class MyBubbleSortTests implements SortAlgorithmTests {
+public class MyBubbleSortTests implements MySorterTests {
     @Override
-    public MySortAlgorithm createSortAlgorithm() {
+    public MySorter createSortAlgorithm() {
         return MyBubbleSort.getInstance();
     }
 }

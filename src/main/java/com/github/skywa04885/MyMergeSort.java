@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * My implementation of the merge sort algorithm.
  */
-public final class MyMergeSort implements MySortAlgorithm {
+public final class MyMergeSort implements MySorter {
     private static final MyMergeSort INSTANCE = new MyMergeSort();
 
     public static MyMergeSort getInstance() {
