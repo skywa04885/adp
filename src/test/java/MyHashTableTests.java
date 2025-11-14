@@ -7,8 +7,7 @@ import java.util.Optional;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.BDDAssertions.within;
 
-class MyHashTableTest {
-
+class MyHashTableTests {
     @Test
     @DisplayName("should insert and retrieve values")
     void shouldInsertAndRetrieveValues() {

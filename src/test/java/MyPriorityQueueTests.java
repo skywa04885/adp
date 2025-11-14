@@ -1,5 +1,4 @@
-package com.github.skywa04885;
-
+import com.github.skywa04885.MyPriorityQueue;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -7,7 +6,7 @@ import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class MyPriorityQueueTest {
+class MyPriorityQueueTests {
 
     @Test
     @DisplayName("should return empty when dequeue is called on an empty queue")
