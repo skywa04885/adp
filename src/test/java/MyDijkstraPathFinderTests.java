@@ -8,16 +8,12 @@ import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.*;
 
+@DisplayName("MyDijkstraPathFinder Tests")
 class MyDijkstraPathFinderTests {
-
-    private MyGraph<String> graph() {
-        return new MyGraph<>();
-    }
-
     @Test
     @DisplayName("Should compute shortest path in a simple linear graph")
     void shouldComputeShortestPathInSimpleLinearGraph() {
-        final MyGraph<String> graph = graph();
+        final MyGraph<String> graph = new MyGraph<>();
 
         graph.addEdge("A", "B", 1);
         graph.addEdge("B", "C", 2);
@@ -34,7 +30,7 @@ class MyDijkstraPathFinderTests {
     @Test
     @DisplayName("Should pick the cheapest of multiple possible paths")
     void shouldPickCheapestOfMultiplePaths() {
-        final MyGraph<String> graph = graph();
+        final MyGraph<String> graph = new MyGraph<>();
 
         graph.addEdge("A", "B", 10);
         graph.addEdge("A", "C", 1);
@@ -52,7 +48,7 @@ class MyDijkstraPathFinderTests {
     @Test
     @DisplayName("Should return empty path when destination has no parent (no path found)")
     void shouldReturnEmptyPathWhenDestinationUnreachable() {
-        final MyGraph<String> graph = graph();
+        final MyGraph<String> graph = new MyGraph<>();
 
         graph.addEdge("A", "B", 5);
         graph.addVertex("X"); // unreachable isolated vertex
@@ -88,7 +84,7 @@ class MyDijkstraPathFinderTests {
     @Test
     @DisplayName("Should handle single-vertex graph correctly")
     void shouldHandleSingleVertexGraphCorrectly() {
-        final MyGraph<String> graph = graph();
+        final MyGraph<String> graph = new MyGraph<>();
         graph.addVertex("A");
 
         final MyDijkstraPathFinder<String> dijkstra = new MyDijkstraPathFinder<>();
@@ -102,7 +98,7 @@ class MyDijkstraPathFinderTests {
     @Test
     @DisplayName("Should throw when origin vertex is not part of the graph")
     void shouldThrowWhenOriginVertexMissing() {
-        final MyGraph<String> graph = graph();
+        final MyGraph<String> graph = new MyGraph<>();
         graph.addVertex("A");
 
         final MyDijkstraPathFinder<String> dijkstra = new MyDijkstraPathFinder<>();
@@ -115,7 +111,7 @@ class MyDijkstraPathFinderTests {
     @Test
     @DisplayName("Should throw when requesting path for unknown vertex")
     void shouldThrowWhenRequestingPathForUnknownVertex() {
-        final MyGraph<String> graph = graph();
+        final MyGraph<String> graph = new MyGraph<>();
         graph.addEdge("A", "B", 1);
 
         final MyDijkstraPathFinder<String> dijkstra = new MyDijkstraPathFinder<>();
@@ -129,7 +125,7 @@ class MyDijkstraPathFinderTests {
     @Test
     @DisplayName("Should ignore non-optimal edges and choose shortest path")
     void shouldIgnoreNonOptimalEdges() {
-        final MyGraph<String> graph = graph();
+        final MyGraph<String> graph = new MyGraph<>();
 
         graph.addEdge("A", "B", 1);
         graph.addEdge("A", "C", 50);
@@ -147,7 +143,7 @@ class MyDijkstraPathFinderTests {
     @Test
     @DisplayName("Should compute correct parent chain for multi-step path")
     void shouldComputeCorrectParentChain() {
-        final MyGraph<String> graph = graph();
+        final MyGraph<String> graph = new MyGraph<>();
 
         graph.addEdge("Start", "A", 2);
         graph.addEdge("A", "B", 2);
