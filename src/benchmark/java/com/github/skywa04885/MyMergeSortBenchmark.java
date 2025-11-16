@@ -40,7 +40,7 @@ public class MyMergeSortBenchmark {
     }
 
     @Benchmark
-    public Integer[] sort(BenchmarkState state) {
+    public Integer[] sort(final BenchmarkState state) {
         return MyMergeSort.getInstance().sort(state.unsorted);
     }
 

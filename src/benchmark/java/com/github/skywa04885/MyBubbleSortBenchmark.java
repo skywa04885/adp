@@ -40,7 +40,7 @@ public class MyBubbleSortBenchmark {
     }
 
     @Benchmark
-    public Integer[] sort(BenchmarkState state) {
+    public Integer[] sort(final BenchmarkState state) {
         return MyBubbleSort.getInstance().sort(state.unsorted);
     }
 
