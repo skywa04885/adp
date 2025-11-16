@@ -1,8 +1,11 @@
 package com.github.skywa04885;
 
-import javax.swing.text.html.Option;
 import java.util.*;
 
+/**
+ * My implementation of Dijkstra's path finding algorithm.
+ * @param <TVertex> The type of vertices.
+ */
 public class MyDijkstraPathFinder<TVertex> {
     /**
      * Wrapper of a map to represent the table used in Dijkstra's algorithm.
