@@ -1,6 +1,14 @@
 package com.github.skywa04885;
 
+/**
+ * My LinkedList implementation.
+ * @param <T> The type of value stored in the linked list.
+ */
 public class MyLinkedList<T> implements MyList<T> {
+    /**
+     * Node that is present in the LinkedList.
+     * @param <T> The type of value stored in the node.
+     */
     private static class Node<T> {
         private Node<T> nextNode;
         private final T value;
@@ -14,16 +22,29 @@ public class MyLinkedList<T> implements MyList<T> {
     private Node<T> tail;
     private int size = 0;
 
+    /**
+     * Check if the linked list is empty.
+     * @return Whether the linked list is empty or not.
+     */
     @Override
     public boolean isEmpty() {
         return size == 0;
     }
 
+    /**
+     * Get the number of elements in the linked list.
+     * @return The number of elements in the linked list.
+     */
     @Override
     public int size() {
         return size;
     }
 
+    /**
+     * Find the index of the given value in the linked list.
+     * @param value The value to find the index for.
+     * @return The index of the value, -1 if not found.
+     */
     @Override
     public int indexOf(final T value) {
         Node<T> node = head;
@@ -41,6 +62,11 @@ public class MyLinkedList<T> implements MyList<T> {
         return index;
     }
 
+    /**
+     * Get the value at the given index of the linked list.
+     * @param index The index to get the value at.
+     * @return The value at te index.
+     */
     @Override
     public T get(final int index) {
         if (index < 0) {
@@ -57,6 +83,10 @@ public class MyLinkedList<T> implements MyList<T> {
         return node.value;
     }
 
+    /**
+     * Add all given values to the linked list.
+     * @param values The values to add to the linked list.
+     */
     @Override
     @SafeVarargs
     public final void addAll(final T... values) {
@@ -65,6 +95,10 @@ public class MyLinkedList<T> implements MyList<T> {
         }
     }
 
+    /**
+     * Add the given value to the linked list.
+     * @param value The value to add to the linked list.
+     */
     @Override
     public void add(final T value) {
         if (isEmpty()) {
@@ -79,6 +113,11 @@ public class MyLinkedList<T> implements MyList<T> {
         ++size;
     }
 
+    /**
+     * Remove the given value from the linked list.
+     * @param value The value to remove from the linked list.
+     * @return Whether the value was removed or not.
+     */
     @Override
     public boolean remove(final T value) {
         Node<T> previous = null;
@@ -114,6 +153,9 @@ public class MyLinkedList<T> implements MyList<T> {
         return true;
     }
 
+    /**
+     * Clear the linked list.
+     */
     @Override
     public void clear() {
         head = null;
@@ -121,6 +163,10 @@ public class MyLinkedList<T> implements MyList<T> {
         size = 0;
     }
 
+    /**
+     * Turn the linked list into a string for debugging.
+     * @return The string version of the linked list.
+     */
     @Override
     public String toString() {
         final StringBuilder builder = new StringBuilder("{");
@@ -139,6 +185,11 @@ public class MyLinkedList<T> implements MyList<T> {
         return builder.toString();
     }
 
+    /**
+     * Turn the linked list into an ordinary array.
+     * @param x The type of array the list should be turned into.
+     * @return The array containing all values in the linked list.
+     */
     @Override
     public T[] toArray(final T[] x) {
         @SuppressWarnings("unchecked")
