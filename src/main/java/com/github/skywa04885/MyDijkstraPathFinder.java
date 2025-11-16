@@ -55,6 +55,10 @@ public class MyDijkstraPathFinder<TVertex> {
                 this.distance = distance;
             }
 
+            public boolean hasParent() {
+                return parent != null;
+            }
+
             public TVertex getParent() {
                 return parent;
             }
@@ -185,5 +189,41 @@ public class MyDijkstraPathFinder<TVertex> {
             openVertices.remove(fromVertex);
             closedVertices.add(fromVertex);
         }
+    }
+
+    /**
+     * Get the path to the given destination vertex.
+     *
+     * @param destinationVertex The destination vertex to which the path should be found.
+     * @return The found dpath.
+     */
+    public List<TVertex> getPath(
+            final TVertex destinationVertex
+    ) {
+        final List<TVertex> path = new ArrayList<>();
+
+        // Add the destination vertex to the path.
+        path.add(destinationVertex);
+
+        // Get te table entry of the destination vertex, so we can start the back-traversal.
+        Table.Entry<TVertex> entry = table
+                .get(destinationVertex)
+                .orElseThrow(() -> new IllegalArgumentException("Destination vertex was not in the traversed graph"));
+
+        // Iterate as long as the entry has a parent to traverse the entire path back.
+        while (entry.hasParent()) {
+            final TVertex parent = entry.getParent();
+
+            // Add the parent to the path.
+            path.add(parent);
+
+            // Traverse the path in reverse by setting the entry to the entry of the parent.
+            entry = table.get(parent)
+                    .orElseThrow(() -> new IllegalStateException("Could not find the entry of the parent of " +
+                            "another entry, should never happen."));
+        }
+
+        // Return the found path (in reverse for correct order).
+        return path.reversed();
     }
 }
