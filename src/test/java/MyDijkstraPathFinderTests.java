@@ -64,7 +64,7 @@ class MyDijkstraPathFinderTests {
     @Test
     @DisplayName("Should compute shortest path in graph with cycles")
     void shouldComputeShortestPathInGraphWithCycles() {
-        final MyGraph<String> graph = graph();
+        final MyGraph<String> graph = new MyGraph<>();
 
         graph.addEdge("A", "B", 3);
         graph.addEdge("B", "C", 4);
