@@ -1,5 +1,6 @@
 package com.github.skywa04885;
 
+import javax.swing.text.html.Option;
 import java.util.*;
 
 public class MyDijkstraPathFinder<TVertex> {
@@ -197,18 +198,21 @@ public class MyDijkstraPathFinder<TVertex> {
      * @param destinationVertex The destination vertex to which the path should be found.
      * @return The found dpath.
      */
-    public List<TVertex> getPath(
+    public Optional<List<TVertex>> getPath(
             final TVertex destinationVertex
     ) {
-        final List<TVertex> path = new ArrayList<>();
-
-        // Add the destination vertex to the path.
-        path.add(destinationVertex);
-
         // Get te table entry of the destination vertex, so we can start the back-traversal.
         Table.Entry<TVertex> entry = table
                 .get(destinationVertex)
                 .orElseThrow(() -> new IllegalArgumentException("Destination vertex was not in the traversed graph"));
+
+        // If the entry has no parent, then simply return nothing since there was no path there.
+        if (!entry.hasParent()) {
+            return Optional.empty();
+        }
+
+        // Create the path wth the initial value of the destination.
+        final List<TVertex> path = new ArrayList<>(List.of(destinationVertex));
 
         // Iterate as long as the entry has a parent to traverse the entire path back.
         while (entry.hasParent()) {
@@ -224,6 +228,6 @@ public class MyDijkstraPathFinder<TVertex> {
         }
 
         // Return the found path (in reverse for correct order).
-        return path.reversed();
+        return Optional.of(path.reversed());
     }
 }
