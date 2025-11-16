@@ -103,6 +103,8 @@ public class MyGraph<TVertex> {
     ) {
         vertices.computeIfAbsent(fromVertex, v -> new HashSet<>())
                 .add(new Edge<>(weight, toVertex));
+
+        vertices.computeIfAbsent(toVertex, v -> new HashSet<>());
     }
 
     /**

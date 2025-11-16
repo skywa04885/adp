@@ -33,7 +33,7 @@ class MyGraphTests {
         graph.addEdge("A", "B", 5);
 
         assertThat(graph.getVertices())
-                .containsExactly("A");
+                .containsExactly("A", "B");
 
         final Optional<Set<MyGraph.Edge<String>>> edges = graph.getEdgesOf("A");
 
