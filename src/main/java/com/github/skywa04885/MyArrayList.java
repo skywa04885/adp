@@ -77,17 +77,26 @@ public class MyArrayList<T> implements MyList<T> {
 
     @Override
     public boolean remove(final T value) {
-        int index = indexOf(value);
+        // Find the index of the element that should be removed, if it's not present, simply return.
+        final int index = indexOf(value);
         if (index == -1) {
             return false;
         }
 
+        // If the element that is removed is not the last element, then shift the entire array to the left,
+        //  (which will override the value, hence null not needed), however, if it's the end, then it has to
+        //  be set to null since it's not touched.
         if(index < size - 1) {
             System.arraycopy(array, index + 1, array, index, size - index - 1);
+            array[size - 1] = null; // Remove the last element after shift.
+        } else {
+            array[index] = null;
         }
 
+        // Decrease the used size of the array.
         --size;
 
+        // Return true since it was removed.
         return true;
     }
 
@@ -97,6 +106,12 @@ public class MyArrayList<T> implements MyList<T> {
         final T[] newArray = allocate(valueClass, newCapacity);
         System.arraycopy(array, 0, newArray, 0, size);
         array = newArray;
+    }
+
+    @Override
+    public void clear() {
+        Arrays.fill(array, null);
+        size = 0;
     }
 
     @Override

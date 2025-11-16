@@ -52,6 +52,11 @@ public interface MyList<T> {
     boolean remove(final T value);
 
     /**
+     * Clear the entire contents of the list.
+     */
+    void clear();
+
+    /**
      * Turn the list into a string.
      * @return The string representation of the list.
      */
